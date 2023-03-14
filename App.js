@@ -8,7 +8,7 @@ export default function App() {
 
 	const getData = async () => {
 		try {
-			const response = await fetch('https://rmdh-app.herokuapp.com/test');
+			const response = await fetch('https://smartparking-backend.herokuapp.com/sign1');
 			const fetchedData = await response.json();
 			setData(fetchedData);
 		} catch (error) {
