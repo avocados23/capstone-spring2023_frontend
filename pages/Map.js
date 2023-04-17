@@ -5,33 +5,6 @@ import MapView from 'react-native-maps';
 
 import styles from '../Stylesheet.default';
 
-const parkingGarageCoords = [
-    {
-        title: "Warsaw Avenue Parking Deck",
-        coordinate: {
-            latitude: 38.44049301960376,
-            longitude: -78.8775374000211,
-        },
-        subtitle: "Parking Deck 1"
-    },
-    {
-        title: "Mason Street Parking Deck",
-        coordinate: {
-            latitude: 38.441077053986234, 
-            longitude: -78.87189939666584,
-        },
-        subtitle: "Parking Deck 2"
-    },
-    {
-        title: "JMU Main Parking Deck",
-        coordinate: {
-            latitude: 38.43502599007161,
-            longitude: -78.87410192849666,
-        },
-        subtitle: "Parking Deck 3"
-    }
-];
-
 export default MapPage = () => {
 
     const [data, setData] = useState(null);

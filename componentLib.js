@@ -1,4 +1,30 @@
 import Svg, { Path } from "react-native-svg"
+import styles from './Stylesheet.default';
+import { Text, View, TouchableOpacity, Image, Linking } from 'react-native';
+
+exports.ChampsDeckImage = require('./assets/champs_deck.jpeg')
+exports.MasonDeckImage = require('./assets/mason_parking_deck.jpeg');
+exports.WarsawDeckImage = require('./assets/warsaw_parking_deck.jpeg');
+
+export const ParkingDeckInfoComponent = ({title, imageURL, availableSpots, clientLat, clientLong, deckLat, deckLong, etaString}) => {
+	return (
+		<View style={styles.testContainer}>
+			<Image source={imageURL} style={{width:"100%",height:200,objectFit:"cover"}} />
+			<View style={{flex:1,backgroundColor:'white',width:'100%',paddingHorizontal:15,paddingTop:25}}>
+				<Text style={{fontWeight:'bold',fontSize:24,marginBottom:5}}>{title}</Text>
+				<Text style={{color:"#888"}}>
+					Spots available: <Text style={{color:"black",fontWeight:"bold"}}>{parseInt(availableSpots) <= 0 ? 0 : parseInt(availableSpots)}</Text>
+					&nbsp;&middot;&nbsp;{etaString}
+				</Text>
+				<TouchableOpacity
+				style={styles.navigateButton}
+				onPress={() => Linking.openURL(`maps://app?saddr=${clientLat}+${clientLong}&daddr=${deckLat}+${deckLong}`)}>
+					<Text style={styles.navigateButtonText}>Navigate to parking garage</Text>
+				</TouchableOpacity>
+			</View>
+		</View>
+	)
+};
 
 export const JMULogoComponent = () => {
 	return (
